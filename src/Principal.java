@@ -14,7 +14,7 @@ public class Principal {
 		listarOpcoes();
 		
 		do {
-			System.out.println(ConsoleColors.CYAN);
+			System.out.print(ConsoleColors.CYAN);
 			System.out.print("--> ");
 			String opcao = leitor.next();
 			System.out.print(ConsoleColors.RESET);
