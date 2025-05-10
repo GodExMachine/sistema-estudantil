@@ -6,9 +6,7 @@ public class Principal {
 		
 	
 		Scanner leitor = new Scanner(System.in);
-	
 		
-			
 		Turma turma = new Turma("101", (byte) 3);
 	
 		boolean encerrar = false;
@@ -19,7 +17,7 @@ public class Principal {
 			System.out.print("\nDigite 2 remover um aluno");
 			System.out.print("\nDigite 3 alterar o profressor.");
 			System.out.println("\nDigite 4 para listar turma.");
-			
+			System.out.print("--> ");
 			
 			int opcao = leitor.nextInt();
 
@@ -49,11 +47,14 @@ public class Principal {
 				System.out.print("CPF: ");
 				cpf = leitor.next();
 				Professor professor = new Professor(nome, sobrenome, cpf);
+				turma.alterarProfessor(professor);
 				break;
 				
 				
 			case 4:
+				turma.listarProfessor();
 				turma.listarAlunos();
+				
 				break;
 
 			default:

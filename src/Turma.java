@@ -142,32 +142,48 @@ public class Turma {
 
 	}
 
+	
+	
 
 	public void listarAlunos() {
-		for (int i = 0; i < quantidadeAlunos; i++) {
-				System.out.println(alunos[i].getNome());
-//				System.out.println(alunos[i].getSobrenome());
-//				System.out.println(alunos[i].getCPF());
-//				System.out.println();
-		}
-		
-	}
-	
-	
-	public void teste() {
-		
-		
-		
-		for (int i = 0; i < quantidadeAlunos; i++) {
-		System.out.println("");
 
-		
+		System.out.println("Alunos:");
+
+		for (int i = 0; i < quantidadeAlunos; i++) {
+			System.out.print("Nome: " + alunos[i].getNome());
+			System.out.print(" " + alunos[i].getSobrenome());
+			System.out.println(" CPF: " + alunos[i].getCPF());
+
 		}
 
+		System.out.println();
+
+	}
+
+	public void listarProfessor() {
+		
+		System.out.println();
+		System.out.println("Professor:");
+		
+		if (this.professor != null) {
+			System.out.print("Nome: " + this.professor.getNome());
+			System.out.print(" " + this.professor.getSobrenome());
+			System.out.println(" CPF: " + this.professor.getCPF());
+			System.out.println();
+
+		}
+	}
+
+	public boolean alterarProfessor(Professor professor) {
+		this.professor = professor;
+		return true;
+
+	}
+
 		
 	
 		
-	}
+	
 	
 	
 	
