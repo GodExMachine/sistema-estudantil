@@ -104,12 +104,18 @@ public class Turma {
 	public boolean removerAluno(Aluno aluno) {
 
 		if (quantidadeAlunos == 0) {
+			
+			System.out.print(ConsoleColors.RED_BACKGROUND_BRIGHT);
+			System.out.println("ERRO: TURMA VAZIA");
+			System.out.print(ConsoleColors.RESET);
 			return false;
 
 		}
-
+		
+		
 		for (int i = 0; i < TAMANHO_TURMA; i++) {
-			if (alunos[i].getCPF().equals(aluno.getCPF())) {
+	
+			if (alunos[i] != null && alunos[i].getCPF().equals(aluno.getCPF())) {
 				alunos[i] = null;
 				alunos = reorganizarVetor(alunos);
 				quantidadeAlunos--;
@@ -117,7 +123,10 @@ public class Turma {
 
 			}
 		}
-
+		
+		System.out.print(ConsoleColors.RED_BACKGROUND_BRIGHT);
+		System.out.println("ERRO 404: ALUNO NAO ENCONTRADO");
+		System.out.print(ConsoleColors.RESET);
 		return false;
 
 	}
@@ -147,6 +156,7 @@ public class Turma {
 
 	public void listarAlunos() {
 
+		System.out.println();
 		System.out.println("Alunos:");
 
 		for (int i = 0; i < quantidadeAlunos; i++) {
@@ -169,7 +179,6 @@ public class Turma {
 			System.out.print("Nome: " + this.professor.getNome());
 			System.out.print(" " + this.professor.getSobrenome());
 			System.out.println(" CPF: " + this.professor.getCPF());
-			System.out.println();
 
 		}
 	}
