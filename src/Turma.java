@@ -154,22 +154,6 @@ public class Turma {
 	}
 	
 	
-	public void teste() {
-		
-		
-		
-		for (int i = 0; i < quantidadeAlunos; i++) {
-		System.out.println("");
-
-		
-		}
-
-		
-	
-		
-	}
-	
-	
 	
 	
 

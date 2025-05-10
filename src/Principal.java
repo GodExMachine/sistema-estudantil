@@ -1,58 +1,33 @@
-import java.util.Scanner;
 
 public class Principal {
 
 	public static void main(String[] args) {
 		
 	
-		Scanner leitor = new Scanner(System.in);
 	
 		Professor professor = new Professor("Carlos","Silva","123.456.789-10");
+		
+		Aluno aluno = new Aluno("Alex","Jung","123.456.789-10");
+		Aluno aluno2 = new Aluno("Pedro","Silva","111.111.111-11");
+		Aluno aluno3 = new Aluno("Alice","Maria","999.999.999-99");
+		Aluno aluno4 = new Aluno("Ana","julia","000.000.000-00");
 			
-		Turma turma = new Turma("101", (byte) 3,professor);
+		Turma turma = new Turma("101", (byte) 3,professor, aluno);
+		
+		
+		
 	
-		boolean encerrar = false;
+		turma.adicionarAluno(aluno);
+		turma.adicionarAluno(aluno2);
+		turma.adicionarAluno(aluno3);
+		turma.adicionarAluno(aluno4);
 		
-		do {
-			System.out.print("\nDigite 0 para encerrar");
-			System.out.print("\nDigite 1 para cadastrar um aluno.");
-			System.out.print("\nDigite 2 remover um aluno");
-			System.out.println("\nDigite 3 para listar turma.");
-
-			int opcao = leitor.nextInt();
-
-			switch (opcao) {
-			case 1:
-				System.out.print("Nome: ");
-				String nome = leitor.next();
-				System.out.print("Sobrenome: ");
-				String sobrenome = leitor.next();
-				System.out.print("CPF: ");
-				String cpf = leitor.next();
-				Aluno aluno = new Aluno(nome, sobrenome, cpf);
-				turma.adicionarAluno(aluno);
-				break;
-
-			case 2:
-				System.out.println("Digite o CPF do aluno que deseja remover");
-				cpf = leitor.next();
-				aluno = new Aluno("A", "A", cpf);
-				turma.removerAluno(aluno);
-				break;
-
-			case 3:
-				turma.listarAlunos();
-				break;
-
-			default:
-				encerrar = true;
-			}
-
-		} while (encerrar == false);
+		turma.removerAluno(aluno2);
+	
+		turma.listarAlunos();
 		
-		
-		
-	leitor.close();
+				
+	
 		
 
 		
