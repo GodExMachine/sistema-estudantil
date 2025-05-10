@@ -7,18 +7,20 @@ public class Principal {
 	
 		Scanner leitor = new Scanner(System.in);
 	
-		Professor professor = new Professor("Carlos","Silva","123.456.789-10");
+		
 			
-		Turma turma = new Turma("101", (byte) 3,professor);
+		Turma turma = new Turma("101", (byte) 3);
 	
 		boolean encerrar = false;
 		
 		do {
-			System.out.print("\nDigite 0 para encerrar");
+			System.out.print("Digite 0 para encerrar");
 			System.out.print("\nDigite 1 para cadastrar um aluno.");
 			System.out.print("\nDigite 2 remover um aluno");
-			System.out.println("\nDigite 3 para listar turma.");
-
+			System.out.print("\nDigite 3 alterar o profressor.");
+			System.out.println("\nDigite 4 para listar turma.");
+			
+			
 			int opcao = leitor.nextInt();
 
 			switch (opcao) {
@@ -39,8 +41,18 @@ public class Principal {
 				aluno = new Aluno("A", "A", cpf);
 				turma.removerAluno(aluno);
 				break;
-
 			case 3:
+				System.out.print("Nome: ");
+				nome = leitor.next();
+				System.out.print("Sobrenome: ");
+				sobrenome = leitor.next();
+				System.out.print("CPF: ");
+				cpf = leitor.next();
+				Professor professor = new Professor(nome, sobrenome, cpf);
+				break;
+				
+				
+			case 4:
 				turma.listarAlunos();
 				break;
 
