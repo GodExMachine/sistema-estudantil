@@ -1,10 +1,8 @@
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -48,8 +46,20 @@ public class SystemJanela {
 		JButton botaoListarTurma = new JButton("Listar turma");
 		botaoListarTurma.setBounds(175, 250, 150, 30);
 		painelConteudo.add(botaoListarTurma);
+		
+		Runnable mostrarMenuPrincipal = () -> {
+			painelConteudo.removeAll();
+			painelConteudo.add(botaoNovoAluno);
+			painelConteudo.add(botaoRemoverAluno);
+			painelConteudo.add(botaoNovoProfessor);
+			painelConteudo.add(botaoListarTurma);
+			painelConteudo.revalidate();
+			painelConteudo.repaint();
+		};
+		
+		
 
-		// listar tura botao
+		// listar turma botao
 		botaoListarTurma.addActionListener(e -> {
 
 			turma.listarProfessor();
@@ -59,19 +69,14 @@ public class SystemJanela {
 			botaoVoltar.setBounds(175, 250, 150, 30);
 			painelConteudo.add(botaoVoltar);
 			botaoVoltar.addActionListener(ev -> {
-				painelConteudo.removeAll();
-				painelConteudo.add(botaoNovoAluno);
-				painelConteudo.add(botaoRemoverAluno);
-				painelConteudo.add(botaoNovoProfessor);
-				painelConteudo.add(botaoListarTurma);
-				painelConteudo.revalidate();
-				painelConteudo.repaint();
+				mostrarMenuPrincipal.run();
 			});
 			painelConteudo.revalidate();
 			painelConteudo.repaint();
 		});
 
 		janela.setVisible(true);
+		
 		botaoListarTurma.addActionListener(e -> {
 			painelConteudo.removeAll();
 
@@ -98,24 +103,12 @@ public class SystemJanela {
 			areaTexto.setEditable(false);
 			areaTexto.setBounds(20, 30, 440, 300);
 			painelConteudo.add(areaTexto);
-
-			JButton botaoVoltar = new JButton("Voltar");
-			botaoVoltar.setBounds(175, 350, 150, 30);
-			painelConteudo.add(botaoVoltar);
-
-			botaoVoltar.addActionListener(ev -> {
-				painelConteudo.removeAll();
-				painelConteudo.add(botaoNovoAluno);
-				painelConteudo.add(botaoRemoverAluno);
-				painelConteudo.add(botaoNovoProfessor);
-				painelConteudo.add(botaoListarTurma);
-				painelConteudo.revalidate();
-				painelConteudo.repaint();
-			});
-
+			painelConteudo.add(criarBotaoVoltar(mostrarMenuPrincipal, 420));
 			painelConteudo.revalidate();
 			painelConteudo.repaint();
 		});
+		
+		
 
 		// Ação do botão "Adicionar Aluno"
 		botaoNovoAluno.addActionListener(e -> {
@@ -167,7 +160,7 @@ public class SystemJanela {
 					JOptionPane.showMessageDialog(null, "Erro: CPF já cadastrado ou turma cheia.", "Erro",
 							JOptionPane.ERROR_MESSAGE);
 				}
-				// Opcional: limpar os campos
+				//limpar os campos
 				textoNomeAluno.setText("");
 				textoSobrenomeAluno.setText("");
 				textoAlunoCPF.setText("");
@@ -179,19 +172,14 @@ public class SystemJanela {
 			painelConteudo.add(botaoVoltar);
 
 			botaoVoltar.addActionListener(ev -> {
-				painelConteudo.removeAll();
-				painelConteudo.add(botaoNovoAluno);
-				painelConteudo.add(botaoRemoverAluno);
-				painelConteudo.add(botaoNovoProfessor);
-				painelConteudo.add(botaoListarTurma);
-				painelConteudo.revalidate();
-				painelConteudo.repaint();
+				mostrarMenuPrincipal.run();
 			});
 
 			painelConteudo.revalidate();
 			painelConteudo.repaint();
 		});
 
+		
 		// Ação do botão "Remover Aluno"
 		botaoRemoverAluno.addActionListener(e -> {
 			painelConteudo.removeAll();
@@ -231,19 +219,7 @@ public class SystemJanela {
 			});
 
 			// Botão Voltar
-			JButton botaoVoltar = new JButton("Voltar");
-			botaoVoltar.setBounds(175, 230, 150, 30);
-			painelConteudo.add(botaoVoltar);
-
-			botaoVoltar.addActionListener(ev -> {
-				painelConteudo.removeAll();
-				painelConteudo.add(botaoNovoAluno);
-				painelConteudo.add(botaoRemoverAluno);
-				painelConteudo.add(botaoNovoProfessor);
-				painelConteudo.add(botaoListarTurma);
-				painelConteudo.revalidate();
-				painelConteudo.repaint();
-			});
+			painelConteudo.add(criarBotaoVoltar(mostrarMenuPrincipal, 230));
 
 			painelConteudo.revalidate();
 			painelConteudo.repaint();
@@ -299,19 +275,7 @@ public class SystemJanela {
 			});
 
 			// Botão Voltar
-			JButton botaoVoltar = new JButton("Voltar");
-			botaoVoltar.setBounds(175, 320, 150, 30);
-			painelConteudo.add(botaoVoltar);
-
-			botaoVoltar.addActionListener(ev -> {
-				painelConteudo.removeAll();
-				painelConteudo.add(botaoNovoAluno);
-				painelConteudo.add(botaoRemoverAluno);
-				painelConteudo.add(botaoNovoProfessor);
-				painelConteudo.add(botaoListarTurma);
-				painelConteudo.revalidate();
-				painelConteudo.repaint();
-			});
+			painelConteudo.add(criarBotaoVoltar(mostrarMenuPrincipal, 320));
 
 			painelConteudo.revalidate();
 			painelConteudo.repaint();
@@ -319,6 +283,27 @@ public class SystemJanela {
 
 	}
 
+	
+	
+	
+	
+	
+	private static JButton criarBotaoVoltar(Runnable acao, int y) {
+		JButton botao = new JButton("Voltar");
+		botao.setBounds(175, y, 150, 30);
+		botao.addActionListener(ev -> acao.run());
+		return botao;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 
 	
