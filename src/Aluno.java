@@ -33,7 +33,7 @@ public class Aluno extends Pessoa {
 	public void responderChamada() {
 		
 		
-		System.out.println(nome+": presente!");
+		System.out.println(getNome()+": presente!");
 		
 	}
 }
