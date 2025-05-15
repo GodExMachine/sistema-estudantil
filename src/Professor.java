@@ -1,42 +1,30 @@
 
-public class Professor {
+public class Professor extends Pessoa{
 	
-	private String nome;
+	private Turma turma;
 	
-	private String sobrenome;
-	
-	private String CPF;
 	
 	public Professor(String nome, String sobrenome, String CPF) {
-		
-		setNome(nome);
-		setSobrenome(sobrenome);
-		setCPF(CPF);
+		super(nome, sobrenome, CPF);
 	}
 	
-	public String getNome() {
-		return nome;
+	public Professor(String nome, String sobrenome, String CPF, Turma turma) {
+		super(nome, sobrenome, CPF);
+		setTurma(turma);
 	}
 	
-	public void setNome(String nome) {
-		this.nome = nome;
+
+	public Turma getTurma() {
+		return turma;
 	}
 	
-	public String getSobrenome() {
-		return sobrenome;
+	
+	public void setTurma(Turma turma) {
+		this.turma =turma;
 	}
 	
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
-	}
 	
-	public String getCPF() {
-		return CPF;
-	}
 	
-	public void setCPF(String CPF) {
-		this.CPF = CPF;
-	}
 	
 	public void realizarChamada() {
 	

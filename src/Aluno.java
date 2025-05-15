@@ -1,41 +1,33 @@
 
-public class Aluno {
+public class Aluno extends Pessoa {
 	
-	private String nome;
-	private String sobrenome;
-	private String CPF;
+	
+	private Turma turma;
+	
 	
 	public Aluno(String nome, String sobrenome, String CPF) {
-		
-		setNome(nome);
-		setSobrenome(sobrenome);
-		setCPF(CPF);
+		super(nome, sobrenome, CPF);
+	}
+	
+	public Aluno(String nome, String sobrenome, String CPF, Turma turma) {
+		super(nome, sobrenome, CPF);
+		setTurma(turma);
+	}
+	
+
+	public Turma getTurma() {
+		return turma;
+	}
+
+	public void setTurma(Turma turma) {
+		this.turma = turma;
 	}
 	
 	
-	public String getNome() {
-		return nome;
-	}
 	
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
 	
-	public String getSobrenome() {
-		return sobrenome;
-	}
 	
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
-	}
 	
-	public String getCPF() {
-		return CPF;
-	}
-	
-	public void setCPF(String CPF) {
-		this.CPF = CPF;
-	}
 	
 	
 	public void responderChamada() {
