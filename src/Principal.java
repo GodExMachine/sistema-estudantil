@@ -5,31 +5,22 @@ public class Principal {
 		
 	
 	
-		Professor professor = new Professor("Carlos","Silva","123.456.789-10");
+		Empregado[] empregados = new Empregado[3];
 		
-		Aluno aluno = new Aluno("Alex","Jung","123.456.789-10");
-		Aluno aluno2 = new Aluno("Pedro","Silva","111.111.111-11");
-		Aluno aluno3 = new Aluno("Alice","Maria","999.999.999-99");
-		Aluno aluno4 = new Aluno("Ana","julia","000.000.000-00");
-			
-		Turma turma = new Turma("101", (byte) 3,professor, aluno);
-		
-		
-		
-	
-		turma.adicionarAluno(aluno);
-		turma.adicionarAluno(aluno2);
-		turma.adicionarAluno(aluno3);
-		turma.adicionarAluno(aluno4);
-		
-		turma.removerAluno(aluno2);
-	
-		turma.listarAlunos();
-		
-				
-	
+		empregados[0]  = new Professor("Juscelino","tem","0921798731", 3000);
+		empregados[1]  = new Diretor("Sonia","Abrao","3242343242",5000);
+		empregados[2]  = new Professor("fabio","Silva","3563245435",3000);
 		
 
+		
+		for(Empregado empregado : empregados) {
+			
+			System.out.println(empregado.calcularSalario());
+			
+			
+		}
+		
+		
 		
 	}
 }

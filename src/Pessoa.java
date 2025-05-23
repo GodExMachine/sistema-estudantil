@@ -1,5 +1,5 @@
 
-public class Pessoa {
+public abstract class Pessoa {
 
 	
 	
@@ -7,7 +7,7 @@ public class Pessoa {
 	private String sobrenome;
 	private String CPF;
 	
-	public Pessoa(String  nome, String sobrenome, String CPF) {
+	protected Pessoa(String  nome, String sobrenome, String CPF) {
 		
 		super();
 		setNome(nome);

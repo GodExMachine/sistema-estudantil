@@ -1,15 +1,15 @@
 
-public class Professor extends Pessoa{
+public class Professor extends Empregado{
 	
 	private Turma turma;
 	
 	
-	public Professor(String nome, String sobrenome, String CPF) {
-		super(nome, sobrenome, CPF);
+	public Professor(String nome, String sobrenome, String CPF, float salario) {
+		super(nome, sobrenome, CPF, salario);
 	}
 	
-	public Professor(String nome, String sobrenome, String CPF, Turma turma) {
-		super(nome, sobrenome, CPF);
+	public Professor(String nome, String sobrenome, String CPF,float salario ,Turma turma) {
+		super(nome, sobrenome, CPF, salario);
 		setTurma(turma);
 	}
 	
@@ -23,7 +23,16 @@ public class Professor extends Pessoa{
 		this.turma =turma;
 	}
 	
-	
+	public float calcularSalario() {
+
+		return getSalario() + 500;
+
+	}
+	public float calcularSalario(int quantidadeHorasTrabalhadas) {
+
+		return quantidadeHorasTrabalhadas *50;
+
+	}
 	
 	
 	public void realizarChamada() {
